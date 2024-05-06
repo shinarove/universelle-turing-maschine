@@ -207,6 +207,7 @@ public class UTM {
                 output.println("\nTuring-Maschine hält im akzeptierenden Zustand q2 an.");
                 output.println("Anzahl der benötigten Berechnungen: " + (countCalculation - 1));
                 output.println(tape.toString());
+                output.println(countZeros(tape.getTape()));
                 break;
             } else if (nextState == null) {
                 output.println("\nTuring-Maschine hält im nicht akzeptierenden Zustand: " + currentState + " an.");
@@ -228,6 +229,7 @@ public class UTM {
                 output.println("\nTuring-Maschine hält im akzeptierenden Zustand q2 an.");
                 output.println("Anzahl der benötigten Berechnungen: " + (countCalculation - 1));
                 output.println(tape.toString());
+                output.println(countZeros(tape.getTape()));
                 break;
             } else if (nextState == null) {
                 output.println("\nTuring-Maschine hält im nicht akzeptierenden Zustand: " + currentState + " an.");
@@ -252,6 +254,18 @@ public class UTM {
             }
         }
         return null;
+    }
+
+    private String countZeros(String tape){
+        if (tape.matches("0+")) {
+            return "Quadratzahl ist: " + tape.length() + "\n";
+        } else if (tape.matches("[_0]+")) {
+            String reducedTape = tape.replace("_", "");
+            if (reducedTape.matches("0+")) {
+                return "Quadratzahl ist: " + reducedTape.length() + "\n";
+            }
+        }
+        return "Kein Ergebnis des Quadrierer.\n";
     }
 
     private boolean stillRunning(){
