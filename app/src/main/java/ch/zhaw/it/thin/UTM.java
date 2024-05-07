@@ -25,6 +25,7 @@ public class UTM {
     public void start(){
         boolean running = true;
         do {
+            countCalculation = 1;
             output.println("Von wo soll die Turing-Maschine gelesen werden?");
             output.println("(S)ystem.in oder (F)ile");
             char option = input.readLine().charAt(0);
